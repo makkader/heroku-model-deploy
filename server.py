@@ -44,7 +44,8 @@ model = getModel()
 
 def getPrediction(scoring_value):
     preds = model.predict(scoring_value).tolist()
-    data = [{"predictionValues": [{"value": pred, "label": "score"}], "prediction": pred, "rowId": i} for i, pred in enumerate(preds)]
+    pred_probas = model.predict_proba(scoring_value).tolist()
+    data = [{"predictionValues": [{"value": pred_probas[i][0], "label": 0}, {"value": pred_probas[i][1], "label": 1}], "prediction": pred, "rowId": i} for i, pred in enumerate(preds)]
 
     return json.dumps({"data": data})
 
