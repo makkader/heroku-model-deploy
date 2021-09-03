@@ -1,6 +1,6 @@
 # Heroku model deployment
 
-### clone the repo
+### Clone the repo
 
 - `git clone https://github.com/makkader/heroku-model-deploy.git`
 
@@ -21,7 +21,7 @@
 curl --request POST 'https://airline-delay-123-test.herokuapp.com/predict' \
 --header 'Content-Type: application/json' \
 --user 'datarobot:apikey_for_datarobot' \
---data-raw '{"input_data":[{"fields":["DAY","DAY_OF_WEEK","ORIGIN_AIRPORT","DESTINATION_AIRPORT","DEPARTURE_DELAY","TAXI_OUT","DISTANCE"],"values":[[11,7,"ABQ","DFW",2,11,570]]}]}'
+--data-raw '[{"DAY":11,"DAY_OF_WEEK":7,"ORIGIN_AIRPORT":"ABQ","DESTINATION_AIRPORT":"DFW","DEPARTURE_DELAY":2,"TAXI_OUT":11,"DISTANCE":570}]'
 
 ## Debug heroku
 

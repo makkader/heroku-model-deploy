@@ -65,9 +65,8 @@ def predict():
         return "Unauthorized", 401
 
     data = request.json
-    values = data['input_data'][0]['values']
-    fields = data['input_data'][0]['fields']
-    scoring_value = pd.DataFrame(values, columns=fields)
+
+    scoring_value = pd.DataFrame.from_dict(data)
     response = getPrediction(scoring_value)
     return response, 200
 
